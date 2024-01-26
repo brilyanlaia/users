@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserTableComponent } from '../../shared/components/user-table/user-table.component';
 import { UserList } from '../../shared/models/user.model';
-import { UserServiceService } from '../../shared/services/user-service.service';
+import { UserService } from '../../shared/services/user-service.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UtilityService } from '../../shared/services/utility.service';
@@ -20,7 +20,7 @@ import { Subject, takeUntil } from 'rxjs';
     HttpClientModule,
     MatButtonModule,
   ],
-  providers: [UserServiceService],
+  providers: [UserService],
   templateUrl: './home-component.component.html',
   styleUrl: './home-component.component.scss',
 })
@@ -36,7 +36,7 @@ export class HomeComponentComponent implements OnInit, OnDestroy {
   private $destroy = new Subject();
 
   constructor(
-    private userService: UserServiceService,
+    private userService: UserService,
     private snackBar: MatSnackBar,
     private utilityService: UtilityService,
     private breakPointObserver: BreakpointObserver,
@@ -48,11 +48,7 @@ export class HomeComponentComponent implements OnInit, OnDestroy {
       .observe(['(max-width: 440px)'])
       .pipe(takeUntil(this.$destroy))
       .subscribe((res) => {
-        if (res.matches) {
-          this.isMobile = true;
-        } else {
-          this.isMobile = false;
-        }
+        this.isMobile = res.matches;
       });
     this._getUserList();
   }

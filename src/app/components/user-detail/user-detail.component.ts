@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserServiceService } from '../../shared/services/user-service.service';
+import { UserService } from '../../shared/services/user-service.service';
 import { UserDetail } from '../../shared/models/user.model';
 import { HttpClientModule } from '@angular/common/http';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -19,7 +19,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     MatButtonModule,
     MatSnackBarModule,
   ],
-  providers: [UserServiceService],
+  providers: [UserService],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.scss',
 })
@@ -28,7 +28,7 @@ export class UserDetailComponent implements OnInit {
   isLoading = false;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private userService: UserServiceService,
+    private userService: UserService,
     private router: Router,
     private utilityService: UtilityService,
     private snackBar: MatSnackBar
