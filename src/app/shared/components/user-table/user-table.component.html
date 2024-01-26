@@ -34,7 +34,7 @@
   ></mat-row>
 </mat-table>
 } @else if (users.length > 0 && isStacked) { @for(user of users; track user.id){
-<mat-card class="user-card">
+<mat-card class="user-card" (click)="handleRowClick(user.id)">
   <mat-card-header>
     <mat-card-title>{{ user.name }}</mat-card-title>
     <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>

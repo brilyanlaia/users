@@ -21,7 +21,6 @@
   display: flex;
   justify-content: center;
   margin-top: 50px;
-  min-width: 400px;
   min-height: 500px;
   gap: 20px;
   background-color: #ffffff;
@@ -50,4 +49,10 @@
 
 .gmaps-link {
   text-decoration: none;
+}
+
+@media screen and (max-width: 450px) {
+  .user-card {
+    width: 310px;
+  }
 }
