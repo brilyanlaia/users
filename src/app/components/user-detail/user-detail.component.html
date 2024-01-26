@@ -1,0 +1,44 @@
+<div class="user-container">
+  <div class="page-header" (click)="goBack()">
+    <div>
+      <mat-icon matPrefix>keyboard_backspace</mat-icon>
+    </div>
+    <span>&nbsp;User List</span>
+  </div>
+  <div class="user-card">
+    @if (isLoading){
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    }@else{
+    <div class="user-card-header">
+      <div class="user-card-title">{{ userDetail.name }}</div>
+      <div class="user-card-subtitle">{{ userDetail.email }}</div>
+    </div>
+    <div class="user-card-content">
+      <p>
+        {{ userDetail.phone }} -
+        <span class="text-bold">{{ userDetail.website }}</span>
+      </p>
+      <p>
+        Address: {{ userDetail.address?.street }}
+        {{ userDetail.address?.suite }}
+        {{ userDetail.address?.city }}
+        <br />
+        <a
+          mat-button
+          class="gmaps-link"
+          href="https://maps.google.com/?q={{ userDetail.address?.geo?.lat }},{{
+            userDetail.address?.geo?.lng
+          }}"
+          target="_blank"
+          >Google Maps <mat-icon>launch</mat-icon></a
+        >
+      </p>
+      <p>
+        Company: {{ userDetail.company?.name }} <br />Description:
+        {{ userDetail.company?.catchPhrase }}
+        <br />
+      </p>
+    </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,40 @@
+.mat-mdc-table {
+  width: 650px;
+  transition: ease-in-out 0.5s;
+}
+
+::ng-deep mat-progress-bar {
+  width: 500px;
+}
+
+.mat-column-email {
+  width: 50%;
+}
+
+@media screen and (max-width: 650px) {
+  .mat-mdc-table {
+    width: 500px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .mat-mdc-table {
+    width: 350px;
+    transition: ease-in-out 0.5s;
+  }
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.user-card {
+  max-width: 400px;
+  margin-bottom: 30px;
+}
+
+.hover-row {
+  cursor: pointer;
+  &:hover {
+    background-color: #f5f5f5;
+  }
+}

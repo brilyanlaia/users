@@ -1,0 +1,30 @@
+<div class="home-container">
+  <div class="button-area">
+    @if(!isMore){
+    <button mat-raised-button color="primary" (click)="showMore()">
+      Show More Columns
+    </button>
+    }@else if (isMore){
+    <button mat-raised-button color="primary" (click)="showLess()">
+      Show Less Columns
+    </button>
+    }@if(isMobile && !isStacked){
+    <button mat-raised-button color="primary" (click)="showStacked()">
+      Show Stacked
+    </button>
+    }@else if (isStacked){
+    <button mat-raised-button color="primary" (click)="showTable()">
+      Show Table
+    </button>
+    }
+  </div>
+  <div class="table-container">
+    <app-user-table
+      [users]="userList"
+      [isLoading]="isLoading"
+      [displayedColumns]="displayedColumns"
+      [isStacked]="isStacked"
+      (onRowClick)="handleRowClick($event)"
+    ></app-user-table>
+  </div>
+</div>
